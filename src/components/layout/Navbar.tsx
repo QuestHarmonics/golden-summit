@@ -5,6 +5,16 @@ export default function Navbar() {
   const user = useStore((state) => state.user);
   const currentEnergy = useResourceStore((state) => state.getCurrentEnergy());
 
+  const navigationItems = [
+    { name: 'Dashboard', path: '/' },
+    { name: 'Tasks', path: '/tasks' },
+    { name: 'Quests', path: '/quests' },
+    { name: 'Skills', path: '/skills' },
+    { name: 'Homestead', path: '/homestead' },
+    { name: 'Map', path: '/map' },
+    { name: 'Profile', path: '/profile' }
+  ];
+
   return (
     <nav className="bg-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4">

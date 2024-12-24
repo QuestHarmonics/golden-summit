@@ -7,5 +7,6 @@ export enum Routes {
   HABITS = '/habits',
   JOURNAL = '/journal',
   ACHIEVEMENTS = '/achievements',
-  PROFILE = '/profile'
+  PROFILE = '/profile',
+  HOMESTEAD = '/homestead'
 } 

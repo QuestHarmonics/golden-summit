@@ -1,7 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import { Routes as AppRoutes } from './types/routes';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+import { Homestead } from './pages/Homestead';
+import { useStore } from './store/store';
+import { useQuestStore } from './store/questStore';
 
 // Lazy load our main components
 const Home = lazy(() => import('./pages/Home'));
@@ -15,6 +18,13 @@ const Achievements = lazy(() => import('./pages/Achievements'));
 const Profile = lazy(() => import('./pages/Profile'));
 
 function App() {
+  const initializeStores = useStore(state => state.initializeStores);
+
+  useEffect(() => {
+    initializeStores();
+    useQuestStore.getState().initializeQuests();
+  }, []);
+
   return (
     <Router>
       <Layout>
@@ -29,6 +39,7 @@ function App() {
             <Route path={AppRoutes.JOURNAL} element={<Journal />} />
             <Route path={AppRoutes.ACHIEVEMENTS} element={<Achievements />} />
             <Route path={AppRoutes.PROFILE} element={<Profile />} />
+            <Route path="/homestead" element={<Homestead />} />
           </Routes>
         </Suspense>
       </Layout>
