@@ -1,0 +1,56 @@
+.game-screen {
+  padding: 20px;
+  color: #0f0;
+}
+
+.game-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.game-tabs button {
+  background: #111;
+  border: 2px solid #0f0;
+  color: #0f0;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+}
+
+.game-tabs button.active {
+  background: #0f0;
+  color: #000;
+}
+
+.stats-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #111;
+  border: 2px solid #0f0;
+  margin-bottom: 20px;
+}
+
+.tab-content {
+  background: #111;
+  border: 2px solid #0f0;
+  padding: 20px;
+  min-height: 400px;
+}
+
+.xp-counter, .xp-rate, .level {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+}
+
+.xp-rate {
+  color: #0f0;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+} 

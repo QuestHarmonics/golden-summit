@@ -1,0 +1,55 @@
+.quest-suggestions {
+  padding: 16px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.suggestion-card {
+  background: var(--bg-primary);
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary);
+}
+
+.confidence-bar {
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  margin: 8px 0;
+  position: relative;
+}
+
+.confidence-bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: var(--confidence);
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.reason {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  margin: 8px 0;
+}
+
+.accept-quest {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.accept-quest:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+} 

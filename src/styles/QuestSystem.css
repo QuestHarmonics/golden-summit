@@ -1,0 +1,173 @@
+.quest-system {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.quest-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quest-item {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.quest-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.quest-item.active {
+  border: 2px solid var(--accent-color);
+}
+
+.quest-item.completed {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.quest-item h4 {
+  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+}
+
+.quest-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  margin-top: 1rem;
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent-color);
+  transition: width 0.3s ease-out;
+}
+
+.quest-item button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.quest-item button:hover {
+  background: var(--accent-color-hover);
+}
+
+.quest-details {
+  flex: 1;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.quest-details h3 {
+  margin: 0 0 1rem;
+  color: var(--text-primary);
+}
+
+.rewards-preview {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+}
+
+.rewards-preview h4 {
+  margin: 0 0 1rem;
+  color: var(--text-primary);
+}
+
+.rewards-preview ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rewards-preview li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.food-reward {
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #000;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.food-reward::before {
+  content: '🍖';
+  margin-right: 0.5rem;
+}
+
+.food-reward::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2));
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  20%, 100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .quest-system {
+    grid-template-columns: 1fr;
+  }
+
+  .quest-details {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    border-radius: 12px 12px 0 0;
+    z-index: 100;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+} 

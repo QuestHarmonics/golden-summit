@@ -1,0 +1,135 @@
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutorial-popup {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: popup-enter 0.3s ease-out;
+}
+
+@keyframes popup-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.tutorial-popup h3 {
+  margin: 0 0 16px;
+  color: #2c3e50;
+  font-size: 24px;
+}
+
+.tutorial-popup p {
+  margin: 0 0 24px;
+  color: #34495e;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.tutorial-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tutorial-next,
+.tutorial-skip {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tutorial-next {
+  background: #3498db;
+  color: white;
+}
+
+.tutorial-next:hover {
+  background: #2980b9;
+}
+
+.tutorial-skip {
+  background: transparent;
+  color: #7f8c8d;
+}
+
+.tutorial-skip:hover {
+  background: #ecf0f1;
+}
+
+.tutorial-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bdc3c7;
+  transition: all 0.2s ease;
+}
+
+.progress-dot.active {
+  background: #3498db;
+  transform: scale(1.2);
+}
+
+.tutorial-highlight {
+  position: relative;
+  z-index: 1001;
+  animation: highlight-pulse 2s infinite;
+}
+
+@keyframes highlight-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+/* Position variants */
+.tutorial-top {
+  margin-bottom: 20px;
+}
+
+.tutorial-bottom {
+  margin-top: 20px;
+}
+
+.tutorial-left {
+  margin-right: 20px;
+}
+
+.tutorial-right {
+  margin-left: 20px;
+} 

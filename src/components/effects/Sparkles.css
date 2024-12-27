@@ -1,0 +1,28 @@
+.sparkles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ff0;
+  left: var(--x);
+  top: var(--y);
+  animation: sparkle 2s infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% { 
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+} 

@@ -1,0 +1,25 @@
+.xp-particle {
+  position: fixed;
+  color: #0f0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  pointer-events: none;
+  text-shadow: 
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
+  animation: float-up 1s forwards;
+  z-index: 1001;
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-20px);
+  }
+} 

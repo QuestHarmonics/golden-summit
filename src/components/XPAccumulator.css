@@ -1,0 +1,110 @@
+.xp-accumulator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #000;
+  border: 4px solid #444;
+  padding: 12px;
+  font-family: 'Press Start 2P', monospace;
+  color: #0f0;
+  z-index: 1000;
+  min-width: 200px;
+  position: relative;
+}
+
+.xp-accumulator::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #f0f, #0ff);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.xp-accumulator.multiplier-active::before {
+  opacity: 0.5;
+  animation: rotate-glow 2s linear infinite;
+}
+
+@keyframes rotate-glow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.xp-display {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.xp-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.level-indicator {
+  color: #ff0;
+  font-size: 0.8em;
+}
+
+.xp-rate {
+  font-size: 0.8em;
+  color: #0ff;
+}
+
+.rate-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.multiplier {
+  color: #f0f;
+  animation: pulse 1s infinite;
+}
+
+.active-buffs {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 2px solid #333;
+}
+
+.buff-indicator {
+  color: #f0f;
+  font-size: 0.7em;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.xp-accumulator.level-up {
+  animation: level-up-flash 0.5s ease-out;
+}
+
+@keyframes level-up-flash {
+  0%, 100% { 
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% { 
+    transform: scale(1.1);
+    filter: brightness(2);
+  }
+} 
